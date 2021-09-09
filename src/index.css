@@ -1,0 +1,189 @@
+:root {
+  --light: hsl(0, 0%, 85%);
+  --grey: hsl(0, 0%, 60%);
+  --color: hsl(335, 45%, 63%);
+  --border: 3px solid var(--color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+  html,
+  body {
+    font-family: "Roboto", sans-serif;
+    font-size: 72.5px;
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;  
+    min-height: 100vh;
+  }
+
+    #root {
+      min-height: 100vh;
+    }
+
+      .app {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      ::-webkit-scrollbar {
+        appearance: none;
+        height: 3px;
+      }
+      ::-webkit-scrollbar-track {
+          background: black;
+      }
+      ::-webkit-scrollbar-thumb {
+          background: var(--color);
+      }
+        .displayContainer {
+          height: auto;
+          width: 90vw;
+          flex-grow: 1;
+          /* height: 20vh; */
+          margin: 0 auto;
+          padding-top: 10px;
+          /* border-left: var(--border); */
+        }
+          .historyDisplay {
+            padding: 0 10px;
+            cursor: pointer;
+            min-height: 30%;
+            width: 100%;
+            font-size: 0.5em;
+            white-space: nowrap;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            border-left: var(--border);
+          }
+          .historyList {
+            position: fixed;
+            z-index: 1;
+            background-color: black;
+            border-left: var(--border);
+            border-bottom: var(--border); 
+          }
+            .listItem {
+              cursor: pointer;
+              padding: 0 10px;
+              margin-top: 10px;
+              white-space: nowrap;
+              height: inherit;
+              width: 100vw;
+              font-size: 0.5em;
+            }
+          .hidden {
+            display: none;
+          }
+          .mainDisplay {
+            /* flex-grow: 1; */
+            padding: 0 10px;
+            white-space: nowrap;
+            height: min-content;
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            border-left: var(--border);
+          }
+        .numPadButtonsContainer {
+          width: 90vw;
+          height: 80vh;
+          margin: 0 auto;
+          padding-bottom: 10px;
+          display: grid;
+          /* You're not specifying the number of lines you want; you're specifying the number of rows and columns you want. */
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(5, 1fr);
+          gap: 15px;         
+        }
+          .numPadButton {
+            user-select: none;
+            border-radius: 0%;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            border: none;
+            font-size: 36px;
+            background-color: var(--light);
+            animation: unfade 0.3s reverse;
+          }
+          .description, .decimal {
+            background-color: var(--grey);
+          }
+          .numPadButton:focus {
+            animation: fade 0.3s forwards;
+          }
+          @keyframes fade {
+            to {
+              background: white;
+              color: black;
+            }
+          }
+          @keyframes unfade {
+            to {
+              background: white;
+              color: black;
+            }
+          }
+          .operation, .ansRes {
+            background-color: var(--color);
+          }
+          #button15 {
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 4;
+            grid-row-end: 6;
+          }
+          #button16 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: 6;
+          }
+
+
+@media screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    font-size: 65px;
+  }
+    .numPadButtonsContainer {
+      gap: 12.5px;
+    }
+}
+@media screen and (max-width: 600px)  {
+  html,
+  body {
+    font-size: 57.5px;
+  }
+    .numPadButtonsContainer {
+      gap: 10px;
+    }
+} 
+@media screen and (max-width: 400px) {
+  html,
+  body {
+    font-size: 50px;
+  }
+    .numPadButtonsContainer {
+      gap: 7.5px;
+    }
+}
+@media screen and (max-width: 300px) {
+  html,
+  body {
+    font-size: 42.5px;
+  }
+    .numPadButtonsContainer {
+      gap: 5px;
+    }
+}
