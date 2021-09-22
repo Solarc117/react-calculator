@@ -1,2 +1,2 @@
 # calculator
-A small calculator app with React-Redux.
+A small calculator app with React.
