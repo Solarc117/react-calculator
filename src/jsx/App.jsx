@@ -12,10 +12,10 @@ export default function App() {
   function addCommas(strArg) {
     // Returns the passed number string formatted with commas.
     // Run if the passed string has no periods (decimals) or letters.
-    if (typeof strArg === "string" && !strArg.match(/[.a-zA-Z]/)) {
-      const strArgIsPos = strArg.includes("⁻") ? false : true;
+    if (typeof strArg === "string" && !strArg.match(/[.a-z]/i)) {
+      const strArgIsPos = !strArg.includes("⁻");
       // Turn the string into an array and filter out any commas.
-      const str = strArgIsPos ? strArg : strArg.substr(1, strArg.length - 1);
+      const str = strArgIsPos ? strArg : strArg.substring(1, strArg.length - 1);
       const arr = str.split("").filter(elem => elem !== ",");
       const subArrs = [];
       for (let i = arr.length - 3; i > 0; i -= 3) {
